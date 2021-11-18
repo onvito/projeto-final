@@ -4,10 +4,10 @@ import { useForm } from 'react-hook-form'
 import { FaArrowLeft, FaCheck } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Box from '../../components/Box'
-import CursoService from '../../services/academico/CursoService'
-import validador from '../../validators/CursoValidator'
+import QuadrinhosService from '../../services/pages/QuadrinhosService'
+import validador from '../../validators/QuadrinhosValidator'
 
-const CursosForm = (props) => {
+const QuadrinhosForms = (props) => {
 
     const { register, handleSubmit, setValue, formState: { errors } } = useForm()
 
@@ -15,9 +15,9 @@ const CursosForm = (props) => {
         const id = props.match.params.id
 
         if (id) {
-            const curso = CursoService.get(id)
-            for (let campo in curso) {
-                setValue(campo, curso[campo])
+            const quadrinhos = QuadrinhosService.get(id)
+            for (let campo in quadrinhos) {
+                setValue(campo, quadrinhos[campo])
             }
         }
     }, [props, setValue])
@@ -25,13 +25,13 @@ const CursosForm = (props) => {
 
     function enviarDados(dados) {
         const id = props.match.params.id
-        id ? CursoService.update(dados, id) : CursoService.create(dados)
-        props.history.push('/cursos')
+        id ? QuadrinhosService.update(dados, id) : QuadrinhosService.create(dados)
+        props.history.push('/quadrinhoss')
     }
 
     return (
         <>
-            <Box title="Cursos">
+            <Box title="quadrinhoss">
                 <Form>
                     <Form.Group as={Row} className="mb-3" controlId="nome">
                         <Form.Label column sm={2}>Nome: </Form.Label>
@@ -56,7 +56,7 @@ const CursosForm = (props) => {
                     </Form.Group>
                     <div className="text-center">
                         <Button variant="success" onClick={handleSubmit(enviarDados)}><FaCheck /> Salvar</Button>
-                        <Link className="btn btn-danger" to="/cursos"><FaArrowLeft /> Voltar</Link>
+                        <Link className="btn btn-danger" to="/quadrinhoss"><FaArrowLeft /> Voltar</Link>
                     </div>
                 </Form>
             </Box>
@@ -64,4 +64,4 @@ const CursosForm = (props) => {
     )
 }
 
-export default CursosForm
+export default QuadrinhosForms

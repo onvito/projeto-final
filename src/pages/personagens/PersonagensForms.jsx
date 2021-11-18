@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom'
 import { mask, unMask } from 'remask'
 import Box from '../../components/Box'
 import apiCep from '../../services/apiCep'
-import AlunoService from '../../services/academico/AlunoService'
-import validador from '../../validators/AlunoValidator'
+import PersonagensService from '../../services/pages/PersonagensService'
+import validador from '../../validators/PersonagensValidator'
 
-const AlunosForm = (props) => {
+const PersonagensForms = (props) => {
 
 
     const { register, handleSubmit, setValue, formState: { errors } } = useForm()
@@ -17,17 +17,17 @@ const AlunosForm = (props) => {
     useEffect(() => {
         const id = props.match.params.id
         if (id) {
-            const aluno = AlunoService.get(id)
-            for (let campo in aluno) {
-                setValue(campo, aluno[campo])
+            const Personagens = PersonagensService.get(id)
+            for (let campo in Personagens) {
+                setValue(campo, Personagens[campo])
             }
         }
     }, [props, setValue])
 
     function enviarDados(dados) {
         const id = props.match.params.id
-        id ? AlunoService.update(dados, id) : AlunoService.create(dados) 
-        props.history.push('/alunos')
+        id ? PersonagensService.update(dados, id) : PersonagensService.create(dados) 
+        props.history.push('/Personagenss')
     }
 
     function handleChange(event) {
@@ -57,7 +57,7 @@ const AlunosForm = (props) => {
 
     return (
         <>
-            <Box title="Alunos">
+            <Box title="Personagenss">
                 <Form>
                     <Form.Group as={Row} className="mb-3" controlId="nome">
                         <Form.Label column sm={2}>Nome: </Form.Label>
@@ -154,7 +154,7 @@ const AlunosForm = (props) => {
                     </Form.Group>
                     <div className="text-center">
                         <Button variant="success" onClick={handleSubmit(enviarDados)}><FaCheck /> Salvar</Button>
-                        <Link className="btn btn-danger" to="/alunos"><FaArrowLeft /> Voltar</Link>
+                        <Link className="btn btn-danger" to="/Personagenss"><FaArrowLeft /> Voltar</Link>
                     </div>
                 </Form>
             </Box>
@@ -162,4 +162,4 @@ const AlunosForm = (props) => {
     )
 }
 
-export default AlunosForm
+export default PersonagensForms

@@ -3,29 +3,29 @@ import { Table } from 'react-bootstrap'
 import { FaPlus, FaRegTrashAlt, FaEdit } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Box from '../../components/Box'
-import CursoService from '../../services/academico/CursoService'
+import QuadrinhosService from '../../services/pages/QuadrinhosService'
 
-const Curso = (props) => {
+const Quadrinhos = (props) => {
 
-    const [cursos, setCursos] = useState([])
+    const [Quadrinhos, setQuadrinhos] = useState([])
 
     useEffect(() => {
-        const cursos = CursoService.getAll()
-        setCursos(cursos)
+        const Quadrinhos = QuadrinhosService.getAll()
+        setQuadrinhos(Quadrinhos)
     }, [])
 
     function excluir(i) {
 
         if (window.confirm('Deseja realmente excluir o registro?')) {
-            CursoService.delete(i)
-            setCursos(CursoService.getAll())
+            QuadrinhosService.delete(i)
+            setQuadrinhos(QuadrinhosService.getAll())
         }
     }
 
     return (
         <>
-            <Box title="Cursos">
-                <Link to="/cursos/create" className="btn btn-primary mb-3"><FaPlus /> Novo</Link>
+            <Box title="Quadrinhos">
+                <Link to="/Quadrinhos/create" className="btn btn-primary mb-3"><FaPlus /> Novo</Link>
 
                 <Table striped bordered hover>
                     <thead>
@@ -38,19 +38,19 @@ const Curso = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {cursos.map((curso, i) => (
+                        {Quadrinhos.map((Quadrinhos, i) => (
                             <tr key={i}>
                                 <td>
-                                    <Link to={'/cursos/' + i}>
+                                    <Link to={'/Quadrinhos/' + i}>
                                         <FaEdit title="Editar" />
                                     </Link>
                                     {' '}
                                     <FaRegTrashAlt className="text-danger" onClick={() => excluir(i)} title="Excluir" />
                                 </td>
                                 <td>{i}</td>
-                                <td>{curso.nome}</td>
-                                <td>{curso.duracao}</td>
-                                <td>{curso.modalidade}</td>
+                                <td>{Quadrinhos.nome}</td>
+                                <td>{Quadrinhos.duracao}</td>
+                                <td>{Quadrinhos.modalidade}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -61,4 +61,4 @@ const Curso = (props) => {
     )
 }
 
-export default Curso
+export default Quadrinhos

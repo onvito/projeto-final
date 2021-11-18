@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import Box from '../../components/Box'
 import validador from '../../validators/ProfessorValidator'
 
-const ProfessoresForm = () => {
+const FilmesForm = () => {
 
     const { register, handleSubmit, formState: {errors} } = useForm()
 
@@ -16,7 +16,7 @@ const ProfessoresForm = () => {
 
     return (
         <>
-            <Box title="Professores">
+            <Box title="Filmes">
                 <Form>
                     <Form.Group as={Row} className="mb-3" controlId="nome">
                         <Form.Label column sm={2}>Nome: </Form.Label>
@@ -49,4 +49,4 @@ const ProfessoresForm = () => {
     )
 }
 
-export default ProfessoresForm
+export default FilmesForm

@@ -1,25 +1,26 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Routes ,Route } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
-import CursosForm from './pages/cursos/CursosForm'
-import Alunos from './pages/alunos/Alunos'
-import AlunosForm from './pages/alunos/AlunosForm'
-import ProfessoresForm from './pages/professores/ProfessoresForm'
-import Curso from './pages/cursos/Curso'
+import Quadrinhos from './pages/quadrinhos/Quadrinhos'
+import QuadrinhosForms from './pages/quadrinhos/QuadrinhosForms'
+import Filmes from './pages/filmes/Filmes'
+import FilmesForms from './pages/filmes/FilmesForms'
+import JogosForms from './pages/jogos/JogosForms'
+
 
 const Rotas = () => {
     return (
         <Container className="mt-3">
-            <Switch>
-                <Route exact path="/" component={Curso} />
-                <Route exact path="/cursos" component={Curso} />
-                <Route exact path="/cursos/create" component={CursosForm} />
-                <Route exact path="/cursos/:id" component={CursosForm} />
-                <Route exact path="/alunos" component={Alunos} />
-                <Route exact path="/alunos/create" component={AlunosForm} />
-                <Route exact path="/alunos/:id" component={AlunosForm} />
-                <Route exact path="/professores" component={ProfessoresForm} />
-            </Switch>
+            <Routes>
+                <Route exact path="/" component={<Quadrinhos/>} />
+                <Route exact path="/Quadrinhos" component={Quadrinhos} />
+                <Route exact path="/Quadrinhos/create" component={QuadrinhosForms} />
+                <Route exact path="/Quadrinhos/:id" component={QuadrinhosForms} />
+                <Route exact path="/Filmes" component={Filmes} />
+                <Route exact path="/Filmes/create" component={FilmesForms} />
+                <Route exact path="/Filmes/:id" component={FilmesForms} />
+                <Route exact path="/jogos/:id" component={JogosForms} />
+            </Routes>
         </Container>
     )
 }

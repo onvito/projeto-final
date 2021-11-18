@@ -6,14 +6,14 @@ const Menu = () => {
     return (
         <Navbar bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#">THE WITCHER</Navbar.Brand>
+                <Navbar.Brand href="#">MARVEL COMICS</Navbar.Brand>
                 <Nav className="me-auto">
                     <Link className="nav-link" to="/inicio">Introdução</Link>    
-                    <Link className="nav-link" to="/cursos">Cursos</Link>
-                    <Link className="nav-link" to="/disciplinas">Disciplinas</Link>
-                    <Link className="nav-link" to="/alunos">Alunos</Link>
-                    <Link className="nav-link" to="/professores">Professores</Link>
-                    <Link className="nav-link" to="/turmas">Turmas</Link>
+                    <Link className="nav-link" to="/filmes">Filmes</Link>
+                    <Link className="nav-link" to="/jogos">Jogos</Link>
+                    <Link className="nav-link" to="/personagens">Personagens</Link>
+                    <Link className="nav-link" to="/quadrinhos">Quadrinhos</Link>
+                    <Link className="nav-link" to="/series">Series</Link>
                 </Nav>
             </Container>
         </Navbar>

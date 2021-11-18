@@ -3,28 +3,28 @@ import { Table } from 'react-bootstrap'
 import { FaEdit, FaPlus, FaRegTrashAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Box from '../../components/Box'
-import AlunoService from '../../services/academico/AlunoService'
+import PersonagensServices from '../../services/pages/PersonagensServices'
 
-const Alunos = () => {
+const Personagens = () => {
 
-    const [alunos, setAlunos] = useState([])
+    const [Personagens, setPersonagens] = useState([])
 
     useEffect(() => {
-        const alunos = AlunoService.getAll()
-        setAlunos(alunos)
+        const Personagens = PersonagensServices.getAll()
+        setPersonagens(Personagens)
     }, [])
 
     function excluir(i) {
         if (window.confirm('Deseja realmente excluir o registro?')) {
-            AlunoService.delete(i)
-            setAlunos(AlunoService.getAll())
+            PersonagensServices.delete(i)
+            setPersonagens(PersonagensServices.getAll())
         }
     }
 
     return (
         <>
-            <Box title="Alunos">
-                <Link to="/alunos/create" className="btn btn-primary mb-3"><FaPlus /> Novo</Link>
+            <Box title="Personagens">
+                <Link to="/Personagens/create" className="btn btn-primary mb-3"><FaPlus /> Novo</Link>
 
                 <Table striped bordered hover>
                     <thead>
@@ -37,20 +37,20 @@ const Alunos = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {alunos.map((aluno, i) => (
+                        {Personagens.map((personagem, i) => (
                             <tr key={i}>
                                 <td>
-                                    <Link to={"/alunos/" + i}>
+                                    <Link to={"/Personagens/" + i}>
                                         <FaEdit title="Editar" />
                                     </Link>
                                     {' '}
                                     <FaRegTrashAlt className="text-danger" title="Excluir" onClick={() => excluir(i)} />
                                 </td>
                                 <td>{i}</td>
-                                <td>{aluno.nome}</td>
-                                <td>{aluno.cpf}</td>
-                                <td>{aluno.telefone}</td>
-                                <td>{aluno.email}</td>
+                                <td>{personagem.nome}</td>
+                                <td>{personagem.cpf}</td>
+                                <td>{personagem.telefone}</td>
+                                <td>{personagem.email}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -61,4 +61,4 @@ const Alunos = () => {
     )
 }
 
-export default Alunos
+export default Personagens
