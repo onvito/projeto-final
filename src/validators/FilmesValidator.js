@@ -1,13 +1,16 @@
 import mensagens from "./mensagens"
 
-const DisciplinaValidator = {
+const FilmesValidator = {
     nome: {
         required: mensagens.required,
         maxLength: {value: 50, message: mensagens.maxLength}
     },
-    curso_id: {
+
+    data: {
         required: mensagens.required,
-    },
+        minLength: {value: 1, message: mensagens.maxLength + ': 1'},
+    }
+    
 }
 
-export default DisciplinaValidator
+export default FilmesValidator

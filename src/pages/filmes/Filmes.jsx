@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import Box from '../../components/Box'
 import FilmesServices from '../../services/pages/FilmesService'
 
+
 const Filmes = () => {
 
     const [Filmes, setFilmes] = useState([])
@@ -20,6 +21,7 @@ const Filmes = () => {
             setFilmes(FilmesServices.getAll())
         }
     }
+    
 
     return (
         <>

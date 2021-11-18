@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { FaArrowLeft, FaCheck } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Box from '../../components/Box'
-import validador from '../../validators/ProfessorValidator'
+import validador from '../../validators/FilmesValidator'
 
 const FilmesForm = () => {
 
@@ -25,11 +25,11 @@ const FilmesForm = () => {
                             {errors.nome && <span className="text-danger">{errors.nome.message}</span>}
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="mb-3" controlId="cpf">
-                        <Form.Label column sm={2}>CPF: </Form.Label>
+                    <Form.Group as={Row} className="mb-3" controlId="data-de-lançamento">
+                        <Form.Label column sm={2}>Data de Lançamento: </Form.Label>
                         <Col sm={10}>
-                            <Form.Control type="text" {...register("cpf", validador.cpf)} />
-                            {errors.cpf && <span className="text-danger">{errors.cpf.message}</span>}
+                            <Form.Control type="text" {...register("data-de-lançamento", validador.data)} />
+                            {errors.data && <span className="text-danger">{errors.data.message}</span>}
                         </Col>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3" controlId="matricula">

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiMarvel = axios.create({
-    baseURL: 'http://gateway.marvel.com/v1/public',
+    baseURL: 'developer.marvel.com',
              'content-type': 'application/json;charset=utf-8',
 })
 
