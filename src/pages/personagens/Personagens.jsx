@@ -3,7 +3,7 @@ import { Table } from 'react-bootstrap'
 import { FaEdit, FaPlus, FaRegTrashAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Box from '../../components/Box'
-import PersonagensServices from '../../services/pages/PersonagensServices'
+import PersonagensServices from '../../services/pages/PersonagensService'
 
 const Personagens = () => {
 
@@ -46,7 +46,7 @@ const Personagens = () => {
                                     {' '}
                                     <FaRegTrashAlt className="text-danger" title="Excluir" onClick={() => excluir(i)} />
                                 </td>
-                                <td>{i}</td>
+                                {/* <td>{i}</td> */}
                                 <td>{personagem.nome}</td>
                                 <td>{personagem.cpf}</td>
                                 <td>{personagem.telefone}</td>

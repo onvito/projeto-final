@@ -1,17 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Col, Form, Row, Button } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import { FaArrowLeft, FaCheck } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Box from '../../components/Box'
-import validador from '../../validators/ProfessorValidator'
+import validador from '../../validators/JogosValidator'
+import JogosService from '../../services/pages/JogosService'
 
-const JogosForms = () => {
+const JogosForms = (props) => {
 
-    const { register, handleSubmit, formState: {errors} } = useForm()
+    const { register, handleSubmit, setValue, formState: {errors} } = useForm()
 
-    function enviarDados(dados){
-        console.log(dados);
+    useEffect(() => {
+        const id = props.match.params.id
+
+        if (id) {
+            const jogos = JogosService.get(id)
+            for (let campo in jogos) {
+                setValue(campo, jogos[campo])
+            }
+        }
+    }, [props, setValue])
+
+    function enviarDados(dados) {
+        const id = props.match.params.id
+        id ? JogosService.update(dados, id) : JogosService.create(dados)
+        props.history.push('/jogos')
     }    
 
     return (
@@ -25,15 +39,15 @@ const JogosForms = () => {
                             {errors.nome && <span className="text-danger">{errors.nome.message}</span>}
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="mb-3" controlId="cpf">
-                        <Form.Label column sm={2}>CPF: </Form.Label>
+                    <Form.Group as={Row} className="mb-3" controlId="data">
+                        <Form.Label column sm={2}>Data de Lançamento: </Form.Label>
                         <Col sm={10}>
-                            <Form.Control type="text" {...register("cpf", validador.cpf)} />
-                            {errors.cpf && <span className="text-danger">{errors.cpf.message}</span>}
+                            <Form.Control type="text" {...register("data", validador.data)} />
+                            {errors.data && <span className="text-danger">{errors.data.message}</span>}
                         </Col>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3" controlId="matricula">
-                        <Form.Label column sm={2}>Matrícula: </Form.Label>
+                        <Form.Label column sm={2}>Gênero: </Form.Label>
                         <Col sm={10}>
                             <Form.Control type="text" {...register("matricula", validador.matricula)} />
                             {errors.matricula && <span className="text-danger">{errors.matricula.message}</span>}
@@ -41,7 +55,7 @@ const JogosForms = () => {
                     </Form.Group>
                     <div className="text-center">
                         <Button variant="success" onClick={handleSubmit(enviarDados)}><FaCheck /> Salvar</Button>
-                        <Link className="btn btn-danger" to="/cursos"><FaArrowLeft /> Voltar</Link>
+                        <Link className="btn btn-danger" to="/jogos"><FaArrowLeft /> Voltar</Link>
                     </div>
                 </Form>
             </Box>

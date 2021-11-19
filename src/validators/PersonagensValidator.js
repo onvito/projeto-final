@@ -1,6 +1,6 @@
 import mensagens from "./mensagens"
 
-const AlunoValidator = {
+const PersonagensValidator = {
     nome: {
         required: mensagens.required,
         maxLength: {value: 50, message: mensagens.maxLength}
@@ -24,4 +24,4 @@ const AlunoValidator = {
     }
 }
 
-export default AlunoValidator
+export default PersonagensValidator

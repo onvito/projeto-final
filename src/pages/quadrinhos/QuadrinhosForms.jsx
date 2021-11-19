@@ -26,12 +26,12 @@ const QuadrinhosForms = (props) => {
     function enviarDados(dados) {
         const id = props.match.params.id
         id ? QuadrinhosService.update(dados, id) : QuadrinhosService.create(dados)
-        props.history.push('/quadrinhoss')
+        props.history.push('/quadrinhos')
     }
 
     return (
         <>
-            <Box title="quadrinhoss">
+            <Box title="quadrinhos">
                 <Form>
                     <Form.Group as={Row} className="mb-3" controlId="nome">
                         <Form.Label column sm={2}>Nome: </Form.Label>
@@ -40,23 +40,23 @@ const QuadrinhosForms = (props) => {
                             {errors.nome && <span className="text-danger">{errors.nome.message}</span>}
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="mb-3" controlId="duracao">
-                        <Form.Label column sm={2}>Duração: </Form.Label>
+                    <Form.Group as={Row} className="mb-3" controlId="edicao">
+                        <Form.Label column sm={2}>Edição: </Form.Label>
                         <Col sm={10}>
-                            <Form.Control type="text" {...register("duracao", validador.duracao)} />
-                            {errors.duracao && <span className="text-danger">{errors.duracao.message}</span>}
+                            <Form.Control type="text" {...register("edicao", validador.edicao)} />
+                            {errors.edicao && <span className="text-danger">{errors.edicao.message}</span>}
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="mb-3" controlId="modalidade">
-                        <Form.Label column sm={2}>Modalidade: </Form.Label>
+                    <Form.Group as={Row} className="mb-3" controlId="data">
+                        <Form.Label column sm={2}>Data de Lançamento: </Form.Label>
                         <Col sm={10}>
-                            <Form.Control type="text" {...register("modalidade", validador.modalidade)} />
-                            {errors.modalidade && <span className="text-danger">{errors.modalidade.message}</span>}
+                            <Form.Control type="text" {...register("data", validador.data)} />
+                            {errors.data && <span className="text-danger">{errors.data.message}</span>}
                         </Col>
                     </Form.Group>
                     <div className="text-center">
                         <Button variant="success" onClick={handleSubmit(enviarDados)}><FaCheck /> Salvar</Button>
-                        <Link className="btn btn-danger" to="/quadrinhoss"><FaArrowLeft /> Voltar</Link>
+                        <Link className="btn btn-danger" to="/quadrinhos"><FaArrowLeft /> Voltar</Link>
                     </div>
                 </Form>
             </Box>

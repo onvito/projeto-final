@@ -33,16 +33,16 @@ const Filmes = () => {
                         <tr>
                             <th>#</th>
                             <th>Nome</th>
-                            <th>CPF</th>
-                            <th>Telefone</th>
-                            <th>E-mail</th>
+                            <th>Data de Lançamento</th>
+                            <th>Gênero</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                         {Filmes.map((filme, i) => (
                             <tr key={i}>
                                 <td>
-                                    <Link to={"/Filmes/" + i}>
+                                    <Link to={"/filmes/" + i}>
                                         <FaEdit title="Editar" />
                                     </Link>
                                     {' '}
@@ -50,9 +50,9 @@ const Filmes = () => {
                                 </td>
                                 <td>{i}</td>
                                 <td>{filme.nome}</td>
-                                <td>{filme.cpf}</td>
-                                <td>{filme.telefone}</td>
-                                <td>{filme.email}</td>
+                                <td>{filme.data}</td>
+                                <td>{filme.genero}</td>
+                                
                             </tr>
                         ))}
                     </tbody>

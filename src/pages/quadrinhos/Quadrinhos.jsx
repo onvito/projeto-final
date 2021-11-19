@@ -33,8 +33,8 @@ const Quadrinhos = (props) => {
                             <th>Ações</th>
                             <th>#</th>
                             <th>Nome</th>
-                            <th>Duração</th>
-                            <th>Modalidade</th>
+                            <th>Edição</th>
+                            <th>Data de Lançamento</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,8 +49,8 @@ const Quadrinhos = (props) => {
                                 </td>
                                 <td>{i}</td>
                                 <td>{Quadrinhos.nome}</td>
-                                <td>{Quadrinhos.duracao}</td>
-                                <td>{Quadrinhos.modalidade}</td>
+                                <td>{Quadrinhos.edicao}</td>
+                                <td>{Quadrinhos.data}</td>
                             </tr>
                         ))}
                     </tbody>

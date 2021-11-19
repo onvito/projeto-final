@@ -27,7 +27,7 @@ const PersonagensForms = (props) => {
     function enviarDados(dados) {
         const id = props.match.params.id
         id ? PersonagensService.update(dados, id) : PersonagensService.create(dados) 
-        props.history.push('/Personagenss')
+        props.history.push('/personagens')
     }
 
     function handleChange(event) {
@@ -67,7 +67,7 @@ const PersonagensForms = (props) => {
                         </Col>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3" controlId="data">
-                        <Form.Label column sm={2}>Data: </Form.Label>
+                        <Form.Label column sm={2}>Data de Criação: </Form.Label>
                         <Col sm={10}>
                             <Form.Control type="text" {...register("data")} mask="99/99/9999" onChange={handleChange} />
                         </Col>
@@ -154,7 +154,7 @@ const PersonagensForms = (props) => {
                     </Form.Group>
                     <div className="text-center">
                         <Button variant="success" onClick={handleSubmit(enviarDados)}><FaCheck /> Salvar</Button>
-                        <Link className="btn btn-danger" to="/Personagenss"><FaArrowLeft /> Voltar</Link>
+                        <Link className="btn btn-danger" to="/Personagens"><FaArrowLeft /> Voltar</Link>
                     </div>
                 </Form>
             </Box>
