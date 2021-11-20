@@ -29,11 +29,11 @@ const Jogos = () => {
                 <Table striped bordered hover>
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>Ações</th>
                             <th>Nome</th>
-                            <th>CPF</th>
-                            <th>Telefone</th>
-                            <th>E-mail</th>
+                            <th>Data de Lançamento</th>
+                            <th>Gênero</th>
+                            <th>Sinopse</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,11 +46,11 @@ const Jogos = () => {
                                     {' '}
                                     <FaRegTrashAlt className="text-danger" title="Excluir" onClick={() => excluir(i)} />
                                 </td>
-                                <td>{i}</td>
+                                
                                 <td>{jogo.nome}</td>
-                                <td>{jogo.cpf}</td>
-                                <td>{jogo.telefone}</td>
-                                <td>{jogo.email}</td>
+                                <td>{jogo.data}</td>
+                                <td>{jogo.matricula}</td>
+                                <td>{jogo.sinopse}</td>
                             </tr>
                         ))}
                     </tbody>

@@ -9,7 +9,6 @@ import Jogos from './pages/jogos/Jogos'
 import JogosForms from './pages/jogos/JogosForms'
 import Personagens from './pages/personagens/Personagens'
 import PersonagensForms from './pages/personagens/PersonagensForms'
-import Introdução from './pages/introdução/Introdução'
 import Series from './pages/series/Series'
 import SeriesForms from './pages/series/SeriesForms'
 
@@ -18,7 +17,7 @@ const Rotas = () => {
     return (
         <Container className="mt-3">
             <Switch>
-                <Route exact path="/" component={Introdução} />
+                <Route exact path="/" component={Filmes} />
                 <Route exact path="/quadrinhos" component={Quadrinhos} />
                 <Route exact path="/quadrinhos/create" component={QuadrinhosForms} />
                 <Route exact path="/quadrinhos/:id" component={QuadrinhosForms} />

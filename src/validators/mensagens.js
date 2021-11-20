@@ -1,7 +1,7 @@
 const mensagens = {
-    required: 'Atenção! Campo obrigatório',
-    minLength: 'Preencha a qtd de caracteres mínima',
-    maxLength: 'A qtd de caracteres máxima foi ultrapassada',
+    required: 'Vamos Lá! Escreva Algo!',
+    minLength: 'Você pode mais do que isso amigão',
+    maxLength: 'Acalme-se, não é pra tanto',
     min: 'Valor mínimo aceito',
     max: 'Valor máximo aceito',
 }

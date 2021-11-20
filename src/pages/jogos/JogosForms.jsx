@@ -53,6 +53,13 @@ const JogosForms = (props) => {
                             {errors.matricula && <span className="text-danger">{errors.matricula.message}</span>}
                         </Col>
                     </Form.Group>
+                    <Form.Group as={Row} className="mb-3" controlId="sinopse">
+                        <Form.Label column sm={2}>Sinopse: </Form.Label>
+                        <Col sm={10}>
+                            <Form.Control type="text" {...register("sinopse", validador.sinopse)} />
+                            {errors.sinopse && <span className="text-danger">{errors.sinopse.message}</span>}
+                        </Col>
+                    </Form.Group>
                     <div className="text-center">
                         <Button variant="success" onClick={handleSubmit(enviarDados)}><FaCheck /> Salvar</Button>
                         <Link className="btn btn-danger" to="/jogos"><FaArrowLeft /> Voltar</Link>

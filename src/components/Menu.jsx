@@ -8,7 +8,7 @@ const Menu = () => {
             <Container>
                 <Navbar.Brand href="#">MARVEL COMICS</Navbar.Brand>
                 <Nav className="me-auto">
-                    <Link className="nav-link" to="/inicio">Introdução</Link>    
+                       
                     <Link className="nav-link" to="/Filmes">Filmes</Link>
                     <Link className="nav-link" to="/jogos">Jogos</Link>
                     <Link className="nav-link" to="/personagens">Personagens</Link>

@@ -31,7 +31,6 @@ const Quadrinhos = (props) => {
                     <thead>
                         <tr>
                             <th>Ações</th>
-                            <th>#</th>
                             <th>Nome</th>
                             <th>Edição</th>
                             <th>Data de Lançamento</th>
@@ -47,7 +46,7 @@ const Quadrinhos = (props) => {
                                     {' '}
                                     <FaRegTrashAlt className="text-danger" onClick={() => excluir(i)} title="Excluir" />
                                 </td>
-                                <td>{i}</td>
+                                
                                 <td>{Quadrinhos.nome}</td>
                                 <td>{Quadrinhos.edicao}</td>
                                 <td>{Quadrinhos.data}</td>

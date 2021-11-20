@@ -6,11 +6,14 @@ import Box from '../../components/Box'
 import FilmesServices from '../../services/pages/FilmesService'
 
 
+
 const Filmes = () => {
 
     const [Filmes, setFilmes] = useState([])
 
     useEffect(() => {
+
+        
         const Filmes = FilmesServices.getAll()
         setFilmes(Filmes)
     }, [])
@@ -31,7 +34,7 @@ const Filmes = () => {
                 <Table striped bordered hover>
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>Ações</th>
                             <th>Nome</th>
                             <th>Data de Lançamento</th>
                             <th>Gênero</th>
@@ -48,7 +51,7 @@ const Filmes = () => {
                                     {' '}
                                     <FaRegTrashAlt className="text-danger" title="Excluir" onClick={() => excluir(i)} />
                                 </td>
-                                <td>{i}</td>
+                                
                                 <td>{filme.nome}</td>
                                 <td>{filme.data}</td>
                                 <td>{filme.genero}</td>

@@ -4,14 +4,19 @@ import { FaEdit, FaPlus, FaRegTrashAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Box from '../../components/Box'
 import SeriesService from '../../services/pages/SeriesService'
+import apiFilmes from "../../services/apiMarvel"
 
 const Series = () => {
 
-    const [Series, setSeries] = useState([])
+    const [series, setSeries] = useState([])
 
     useEffect(() => {
-        const Series = SeriesService.getAll()
-        setSeries(Series)
+
+        apiFilmes.get("/v1/public/series").then((resultado) => {
+            setSeries(resultado.data.results);
+        });
+        const series = SeriesService.getAll()
+        setSeries(series)
     }, [])
 
     function excluir(i) {
@@ -29,8 +34,7 @@ const Series = () => {
                 <Table striped bordered hover>
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Nº</th>
+                            <th>Ações</th>                        
                             <th>Nome</th>
                             <th>Data de Lançamento</th>
                             <th>Gênero</th>
@@ -38,7 +42,7 @@ const Series = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {Series.map((serie, i) => (
+                        {series.map((serie, i) => (
                             <tr key={i}>
                                 <td>
                                     <Link to={"/series/" + i}>
@@ -47,7 +51,7 @@ const Series = () => {
                                     {' '}
                                     <FaRegTrashAlt className="text-danger" title="Excluir" onClick={() => excluir(i)} />
                                 </td>
-                                <td>{i}</td>
+                                
                                 <td>{serie.nome}</td>
                                 <td>{serie.data}</td>
                                 <td>{serie.genero}</td>

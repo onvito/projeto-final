@@ -5,11 +5,12 @@ const JogosValidator = {
         required: mensagens.required,
         maxLength: {value: 50, message: mensagens.maxLength}
     },
-    modalidade: {
+
+    sinopse: {
         required: mensagens.required,
-        minLength: {value: 1, message: mensagens.maxLength + ': 1'},
-        maxLength: {value: 1, message: mensagens.maxLength + ': 1'}
-    },
+        minLength: {value: 20, message: mensagens.minLength },
+       
+    }
 }
 
 export default JogosValidator

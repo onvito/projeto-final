@@ -5,10 +5,10 @@ const SeriesValidator = {
         required: mensagens.required,
         maxLength: {value: 50, message: mensagens.maxLength}
     },
-    modalidade: {
+    genero: {
         required: mensagens.required,
-        minLength: {value: 1, message: mensagens.maxLength + ': 1'},
-        maxLength: {value: 1, message: mensagens.maxLength + ': 1'}
+        minLength: {value: 1, message: mensagens.maxLength },
+        maxLength: {value: 1, message: mensagens.maxLength }
     },
 }
 
