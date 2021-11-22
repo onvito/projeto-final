@@ -5,7 +5,7 @@ import { FaArrowLeft, FaCheck } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 import Box from '../../components/Box'
-
+import { mask, unMask } from 'remask'
 import PersonagensService from '../../services/pages/PersonagensService'
 import validador from '../../validators/PersonagensValidator'
 
@@ -30,6 +30,16 @@ const PersonagensForms = (props) => {
         props.history.push('/personagens')
     }
 
+    function handleChange(event) {
+        const name = event.target.name
+        const mascara = event.target.getAttribute('mask')
+
+        let valor = unMask(event.target.value)
+        valor = mask(valor, mascara)
+
+        setValue(name, valor)
+    }
+
 
     return (
         <>
@@ -45,14 +55,18 @@ const PersonagensForms = (props) => {
                     <Form.Group as={Row} className="mb-3" controlId="data">
                         <Form.Label column sm={2}>Data de Criação: </Form.Label>
                         <Col sm={10}>
-                            <Form.Control type="text" {...register("data")}  />
+                            <Form.Control type="text" {...register("data")}  
+                            mask="99/99/9999"
+                            onChange={handleChange}/>
                         </Col>
                     </Form.Group>
                    
                     <Form.Group as={Row} className="mb-3" controlId="aparicao">
                         <Form.Label column sm={2}>1º Aparição: </Form.Label>
                         <Col sm={10}>
-                            <Form.Control type="text" {...register("aparicao", validador.aparicao)} />
+                            <Form.Control type="text" {...register("aparicao", validador.aparicao)} 
+                            mask="99/99/9999"
+                            onChange={handleChange}/>
                             {errors.aparicao && <span className="text-danger">{errors.aparicao.message}</span>}
                         </Col>
                     </Form.Group>

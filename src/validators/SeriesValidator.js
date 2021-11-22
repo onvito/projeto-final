@@ -7,8 +7,8 @@ const SeriesValidator = {
     },
     genero: {
         required: mensagens.required,
-        minLength: {value: 1, message: mensagens.maxLength },
-        maxLength: {value: 1, message: mensagens.maxLength }
+        minLength: {value: 1, message: mensagens.minLength },
+       
     },
 }
 
