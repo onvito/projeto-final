@@ -39,7 +39,29 @@ const FilmesForms = (props) => {
         setValue(name, valor)
     }
 
+    class FlavorForm extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {value: 'coco'};
+      
+          this.handleChange = this.handleChange.bind(this);
+          this.handleSubmit = this.handleSubmit.bind(this);
+        }
+      
+        handleChange(event) {
+          this.setState({value: event.target.value});
+        }
+      
+        handleSubmit(event) {
+          alert('Seu sabor favorito é: ' + this.state.value);
+          event.preventDefault();
+        }
+    
+    }
+
     return (
+
+        
         <>
             <Box title="Filmes">
                 <Form>
@@ -61,9 +83,19 @@ const FilmesForms = (props) => {
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3" controlId="genero">
                         <Form.Label column sm={2}>Gênero: </Form.Label>
-                        <Col sm={10}>
-                            <Form.Control type="text" {...register("genero", validador.genero)} />
-                            {errors.genero && <span className="text-danger">{errors.genero.message}</span>}
+                        <Col sm={10}>  
+                         <form onSubmit={this.handleSubmit}>
+                            <label>
+                            Escolha seu sabor favorito:
+                            <select multiple={true} value={this.state.value} onChange={this.handleChange}>
+                                <option value="laranja">Laranja</option>
+                                <option value="limao">Limão</option>
+                                <option value="coco">Coco</option>
+                                <option value="manga">Manga</option>
+                            </select>
+                            </label>
+                            <input type="submit" value="Enviar" />
+                        </form>   
                         </Col>
                     </Form.Group>
                     <div className="text-center">
